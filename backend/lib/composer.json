@@ -1,0 +1,7 @@
+{
+	"require":
+	{
+        "geometria-lab/rediska": "dev-master",
+        "monolog/monolog": "1.11.*@dev"
+	}
+}
