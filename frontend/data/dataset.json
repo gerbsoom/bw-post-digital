@@ -1,0 +1,31 @@
+[
+	{
+		"Sendung":
+		{
+			"Nummer":"123456",
+			"Absender":"El Farrid",
+			"Empfänger":"1.SAN-Kompanie",
+			"OptionaleInfo":"Das Paket tickt"
+		},
+		"Einbuchung":
+		{
+			"BearbeiterId":1,
+			"BearbeiterName":"Thomas Gasser",
+			"BearbeiterPersonalnummer":"12345",
+			"Zeitstempel":"2016-12-12 14:28:32",
+			"OptionaleInfo":""
+		},
+		"Ausbuchung":
+		{
+			"BearbeiterId":"1",
+			"BearbeiterName":"Thomas Gasser",
+			"BearbeiterPersonalnummer":"12345",
+			"AbholerName":"Klaus Postdieb",
+			"Unterschrift":"img/digital-sign.png",
+			"Zeitstempel":"2016-12-12 14:28:32",
+			"OptionaleInfo":""
+		}
+	},{
+	...
+	}
+]

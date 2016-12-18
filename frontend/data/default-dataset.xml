@@ -1,0 +1,17 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<rows>
+  <page> </page>
+  <total> </total>
+  <records> </records>
+    <row id = 'unique_rowid'>
+      <cell> cellcontent </cell>
+      <cell> <![CDATA[<font color='red'>cell</font> content]]> </cell>
+        …
+    </row>
+    <row id = 'unique_rowid'>
+      <cell> cellcontent </cell>
+      <cell> <![CDATA[<font color='red'>cell</font> content]]> </cell>
+        …
+    </row>
+      …
+</rows>
