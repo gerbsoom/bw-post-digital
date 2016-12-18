@@ -2,7 +2,7 @@
 
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpassword = "23--23--23";
+$dbpassword = "";
  
 $page = $_GET['page']; 
  
@@ -66,7 +66,7 @@ $s .= "<total>".$total_pages."</total>";
 $s .= "<records>".$count."</records>";
  
 // be sure to put text data in CDATA
-while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     $s .= "<row id='". $row['invid']."'>";            
     $s .= "<cell>". $row['invid']."</cell>";
     $s .= "<cell>". $row['invdate']."</cell>";
