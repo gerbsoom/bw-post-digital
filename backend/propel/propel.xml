@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<config>
+    <propel>
+        <database>
+            <connections>
+                <connection id="poststore">
+                    <adapter>mysql</adapter>
+                    <classname>Propel\Runtime\Connection\ConnectionWrapper</classname>
+                    <dsn>mysql:host=localhost;dbname=poststore</dsn>
+                    <user>postdaemon</user>
+                    <password>postdaemon</password>
+                </connection>
+            </connections>
+        </database>
+        <runtime>
+            <defaultConnection>poststore</defaultConnection>
+            <connection>poststore</connection>
+        </runtime>
+        <generator>
+            <defaultConnection>poststore</defaultConnection>
+            <connection>poststore</connection>
+        </generator>
+    </propel>
+</config>

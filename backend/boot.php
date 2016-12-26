@@ -8,6 +8,7 @@
  */
 
 require_once 'lib/vendor/autoload.php';
+require_once 'propel/generated-conf/config.php';
 
 $options = array('servers' => array(array('host' => '127.0.0.1', 'port' => 6379)));
 $rediska = new Rediska($options);
@@ -22,7 +23,7 @@ $rediska = new Rediska($options);
 function customAutoLoader($_className)
 {
     $found = false;
-    $dirs = array('lib') ;
+    $dirs = array('', 'lib') ;
     foreach ($dirs as $dir)
     {
         $file = __DIR__."/lib/".$dir."/".$_className. ".php";

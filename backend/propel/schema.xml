@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="poststore" defaultIdMethod="native">
+  <table name="user" phpName="User">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="first_name" type="varchar" size="128" required="false"/>
+    <column name="last_name" type="varchar" size="128" required="false"/>
+	<column name="personal_id" type="varchar" size="128" required="true"/>
+	<column name="login_name" type="varchar" size="128" required="true"/>
+	<column name="password_salt" type="varchar" size="128" required="true" defaultValue="none"/>
+	<column name="password_hash" type="varchar" size="128" required="false"/>
+	<column name="logged_in" type="integer" size="1" required="true" default="false"/>
+	<column name="is_admin" type="integer" size="1" required="true" default="false"/>
+	<column name="last_activity" type="timestamp" required="false"/>
+	<unique name="unique_user_login">
+		<unique-column name="login_name" />
+	</unique>
+	<unique name="unique_personal_id">
+		<unique-column name="personal_id" />
+	</unique>
+  </table>
+  <table name="receiver" phpName="Receiver">
+   <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+   <column name="name" type="varchar" size="128" required="true" />
+   <column name="description" type="varchar" size="128" required="false" />
+  </table>
+  <table name="delivery" phpName="Delivery">
+   <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+   <column name="number" type="varchar" size="128" required="true" />
+   <column name="status" type="enum" size="128" required="true" valueSet="incoming, in_poststore, delivered" defaultValue="incoming" />
+   <column name="sender_id" type="varchar" size="128" required="true" />
+   <column name="receiver_id" type="integer" required="true"/>
+   <column name="optional_info" type="varchar" size="255" required="false" />
+   <behavior name="timestampable">
+		<parameter name="created_on" value="created_on" />
+		<parameter name="updated_on" value="updated_on" />
+  </behavior>
+   <foreign-key foreignTable="receiver" phpName="Receiver" refPhpName="Receiver">
+      <reference local="receiver_id" foreign="id"/>
+   </foreign-key>
+  </table>
+  <table name="operation" phpName="Operation">
+   <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+   <column name="user_id" type="integer" required="true"/>
+   <column name="type" type="varchar" size="128" required="true" valueSet="check_in, check_out" />
+   <column name="delivery_id" type="integer" required="true"/>
+   <column name="optional_info" type="varchar" size="255" required="false" />
+   <behavior name="timestampable">
+		<parameter name="created_on" value="created_on" />
+  </behavior>
+   <foreign-key foreignTable="user" phpName="User" refPhpName="User">
+      <reference local="user_id" foreign="id"/>
+   </foreign-key>
+   <foreign-key foreignTable="delivery" phpName="Delivery" refPhpName="Delivery">
+      <reference local="delivery_id" foreign="id"/>
+   </foreign-key>
+   <unique name="unique_operation">
+		<unique-column name="type" />
+		<unique-column name="delivery_id" />
+	</unique>
+  </table>
+</database>
+

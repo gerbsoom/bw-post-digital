@@ -2,6 +2,10 @@
 	"require":
 	{
         "geometria-lab/rediska": "dev-master",
-        "monolog/monolog": "1.11.*@dev"
+        "monolog/monolog": "1.11.*@dev",
+		"propel/propel": "~2.0@dev"
+	},
+	"autoload": {
+		"classmap": ["../propel/generated-classes/"]
 	}
 }
